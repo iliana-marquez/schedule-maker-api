@@ -51,31 +51,42 @@ class Employee:
                     )
                 employees.append(employee)
 
-            unavailability_sheet = workbook["Unavailability"]
+        unavailability_sheet = workbook["Unavailability"]
 
-            for row in unavailability_sheet.iter_rows(
-                min_row=2,
-                values_only=True
-            ):
-                employee_name = row[0]
-                unavailability_date = row[1]
-                start_time = row[2]
-                end_time = row[3]
-                if start_time is None and end_time is None:
-                    unavailabilities = {"date": unavailability_date,
-                                        "type": "whole_day"}
-                else:
-                    unavailabilities = {
-                            "date": unavailability_date,
-                            "start_time": start_time,
-                            "end_time": end_time}
+        employee_map = {emp.first_name: emp for emp in employees}
 
-                for employee in employees:
-                    if employee_name == employee.first_name:
-                        employee.unavailability.append(unavailabilities)
-                        break
+        for row in unavailability_sheet.iter_rows(
+            min_row=2,
+            values_only=True
+        ):
+            employee_name = row[0]
+            unavailability_date = row[1]
+            start_time = row[2]
+            end_time = row[3]
+            if employee_name is None or unavailability_date is None:
+                continue
+            elif start_time is None and end_time is None:
+                unavailable = {
+                    "date": unavailability_date.date(),
+                    "start_time": None,
+                    "end_time": None,
+                    "type": "whole_day"}
+            else:
+                unavailable = {
+                    "date": unavailability_date.date(),
+                    "start_time": start_time,
+                    "end_time": end_time,
+                    "type": "partial"}
 
-            return employees
+            if employee_name in employee_map:
+                employee_map[employee_name].unavailability.append(
+                    unavailable)
+            else:
+                print(
+                    f"No employee found with name '{employee_name}'"
+                    )
+
+        return employees
 
 
 if __name__ == "__main__":
@@ -92,7 +103,7 @@ if __name__ == "__main__":
             print(f"Calendar: {employee.work_calendar_id}")
             print(f"Hours: {employee.contract_hours_per_week}")
             print(f"Business Unit: {employee.businessunit}")
-            print(f"Unavailabilities: {employee.unavailability}")
+            print(f"Unavailability: {employee.unavailability}")
             print("-" * 40)
 
     except FileNotFoundError:
