@@ -134,7 +134,8 @@ class ShiftCalendar:
 #     shifts = cal.fetch_current_shifts()
 #     print(shifts)
 
-#     # To test publish, create a dummy schedule with the same keys as _parse_shift_event returns
+#     # To test publish, create a dummy schedule with the same keys as
+#       _parse_shift_event returns
 #     test_schedule = {
 #         "123": [
 #             {
@@ -142,13 +143,13 @@ class ShiftCalendar:
 #                 "start": datetime.now(),
 #                 "end": datetime.now() + timedelta(hours=8)
 #             }
-#         ], 
+#         ],
 #         "124": [
 #             {
 #                 "summary": "Test Shift 2",
 #                 "start": datetime.now(),
 #                 "end": datetime.now() + timedelta(hours=4)
 #             }
-#         ], 
+#         ],
 #     }
 #     cal.publish_upcoming_shifts(test_schedule)
