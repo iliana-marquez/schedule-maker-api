@@ -6,7 +6,7 @@ active employees are fetched and published.
 
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
-from datetime import datetime, date, time, timedelta
+from datetime import datetime, date, time
 from typing import List, Dict
 from dateutil.parser import parse
 import calendar
@@ -134,7 +134,8 @@ class ShiftCalendar:
 #     shifts = cal.fetch_current_shifts()
 #     print(shifts)
 
-#     # To test publish, create a dummy schedule with the same keys as _parse_shift_event returns
+#     # To test publish, create a dummy schedule with the same keys as
+#       _parse_shift_event returns
 #     test_schedule = {
 #         "123": [
 #             {
@@ -142,13 +143,13 @@ class ShiftCalendar:
 #                 "start": datetime.now(),
 #                 "end": datetime.now() + timedelta(hours=8)
 #             }
-#         ], 
+#         ],
 #         "124": [
 #             {
 #                 "summary": "Test Shift 2",
 #                 "start": datetime.now(),
 #                 "end": datetime.now() + timedelta(hours=4)
 #             }
-#         ], 
+#         ],
 #     }
 #     cal.publish_upcoming_shifts(test_schedule)
