@@ -2,3 +2,4 @@
 .env
 creds.json     
 xlsx_files
+__pycache__
