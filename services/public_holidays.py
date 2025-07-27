@@ -16,8 +16,20 @@ def get_holidays_in_range(
     """
     all_holidays = holidays.country_holidays(
         country_code,
-        year=start_date.year)
+        years=start_date.year)
 
     return [{"date": holiday_date, "title": all_holidays[holiday_date]}
             for holiday_date in all_holidays
             if start_date <= holiday_date <= end_date]
+
+
+# # testing
+# if __name__ == "__main__":
+#     # Test with Austrian holidays for August 2025
+#     august_holidays = get_holidays_in_range(
+#         'AT', date(2025, 8, 1), date(2025, 8, 31)
+#         )
+
+#     print(f"Found {len(august_holidays)} holidays in August 2025:")
+#     for holiday in august_holidays:
+#         print(f"  {holiday['date']}: {holiday['title']}")
