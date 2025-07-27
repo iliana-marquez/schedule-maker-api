@@ -6,7 +6,7 @@ active employees are fetched and published.
 
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
-from datetime import datetime, date, time, timedelta
+from datetime import datetime, date, time
 from typing import List, Dict
 from dateutil.parser import parse
 import calendar
