@@ -11,9 +11,9 @@ An intelligent API that generates and assigns monthly work schedules across mult
 ## Business Context
 
 ### Target Users:
-Store managers: Need efficient monthly schedule with minimal manual effort.
-Employees: Require fair shift distribution respecting ther availability.
-Business Owners: Want compliance with labor laws and optimised labour costs.
+- Team managers: Need efficient monthly schedule with minimal manual effort.
+- Employees: Require fair shift distribution respecting ther availability.
+- Business Owners: Want compliance with labor laws and optimised labour costs.
 
 ### Real-World Constraints:
 Multi-day absences (vacations spanning multiple days)
