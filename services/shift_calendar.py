@@ -87,7 +87,8 @@ class ShiftCalendar:
         return events_result.get('items', [])
 
     def _parse_shift_event(self, event: dict) -> dict:
-        start_str = event['start'].get('dateTime') or event['start'].get('date')
+        start_str = event['start'].get(
+            'dateTime') or event['start'].get('date')
         end_str = event['end'].get('dateTime') or event['end'].get('date')
         return {
             'title': event.get('summary'),
@@ -106,50 +107,3 @@ class ShiftCalendar:
         self.service.events().insert(
             calendarId=calendar_id, body=event
             ).execute()
-
-
-# if __name__ == "__main__":
-#     from models.employee import Employee
-#     # Example employee with dummy calendar id
-#     employees = [
-#         Employee(
-#             employee_id="123",
-#             first_name="Alice",
-#             contract_hours_per_week=40,
-#             work_calendar_id="vcrk5gevoffaskkl57rbl3q1n8@group.calendar.google.com",
-#             unavailability=[],
-#             businessunit="BU1"
-#         ),
-#         Employee(
-#             employee_id="124",
-#             first_name="Alico",
-#             contract_hours_per_week=40,
-#             work_calendar_id="vcrk5gevoffaskkl57rbl3q1n8@group.calendar.google.com",
-#             unavailability=[],
-#             businessunit="BU1"
-#         )
-#     ]
-
-#     cal = ShiftCalendar(employees)
-#     shifts = cal.fetch_current_shifts()
-#     print(shifts)
-
-#     # To test publish, create a dummy schedule with the same keys as
-#       _parse_shift_event returns
-#     test_schedule = {
-#         "123": [
-#             {
-#                 "summary": "Test Shift",
-#                 "start": datetime.now(),
-#                 "end": datetime.now() + timedelta(hours=8)
-#             }
-#         ],
-#         "124": [
-#             {
-#                 "summary": "Test Shift 2",
-#                 "start": datetime.now(),
-#                 "end": datetime.now() + timedelta(hours=4)
-#             }
-#         ],
-#     }
-#     cal.publish_upcoming_shifts(test_schedule)
