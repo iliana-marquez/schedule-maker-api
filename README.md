@@ -16,11 +16,11 @@ An intelligent API that generates and assigns monthly work schedules across mult
 - Business Owners: Want compliance with labor laws and optimised labour costs.
 
 ### Real-World Constraints:
-Multi-day absences (vacations spanning multiple days)
-Part-time contracts (varying weekly hours: 10h, 20h, 30h, 40h)
-Austrian labor regulations (max 8 hours/day, mandatory rest periods)
-Public holiday handling (mandatory closures with adjacent day shift adjustments)
-Employee preferences and unavailability
+- Multi-day absences (vacations spanning multiple days)
+- Part-time contracts (varying weekly hours: 10h, 20h, 30h, 40h)
+- Austrian labor regulations (max 8 hours/day, mandatory rest periods)
+- Public holiday handling (mandatory closures with adjacent day shift adjustments)
+- Employee preferences and unavailability
 
 ### Data Flow
 Input → Processing → Output
